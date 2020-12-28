@@ -3,10 +3,9 @@ Visitors
 
 This module records and stores information about (anonymous or authenticated) visitors
 to a Backdrop site, and provides detailed reports about visitors. Additionally, it
-creates a block that can display access information.
+creates a block that can display some visitor information.
 
-This module is a port of the Drupal 7 version of the Visitors module found here:
-https://www.drupal.org/project/visitors
+This module is a port of the Drupal 7 Visitors module found here: https://www.drupal.org/project/visitors.
 The Backdrop version does not feature the pChart charting functionality or the GeoIP sub-module.
 Future releases of this module will feature upgraded charting functionality.
 
