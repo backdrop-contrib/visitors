@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function visitors_install() {
+#  variable_set('visitors_start_count_total_visitors', 0);
+}
+
+/**
+ * Uninstall the module with database table and module settings.
+ */
+function visitors_uninstall() {
+  backdrop_uninstall_schema('visitors');
+
+  // remove config
+  $config = config('visitors.settings');
+  $config->delete();
+}
+
+/**
+ * Implementats of hook_schema().
+ */
+function visitors_schema() {
+  $schema['visitors'] = array(
+    'fields' => array(
+      'visitors_id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'visitors_uid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'visitors_ip' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'visitors_date_time' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'visitors_url' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'visitors_referer' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'visitors_path' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'visitors_title' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'visitors_user_agent' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('visitors_id'),
+  );
+
+  return $schema;
+}
+

@@ -1,0 +1,7 @@
+type = module
+name = Visitors
+description = "This module used for displaying a visitors info."
+package = "Visitors"
+configure = admin/config/system/visitors
+backdrop = 1.x
+
